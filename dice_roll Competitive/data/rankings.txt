@@ -1,0 +1,9 @@
+ches,dice_game,21,7
+king,dice_game,15,5
+ches,dice_game,9,3
+king,dice_game,12,4
+ches,dice_game,3,1
+ches,dice_game,33,11
+ches,dice_game,6,2
+ches,dice_game,21,7
+ches,dice_game,30,10

@@ -1,0 +1,2 @@
+ches,kingches
+king,chesking
