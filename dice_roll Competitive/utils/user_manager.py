@@ -10,7 +10,7 @@ class UserManager:
             os.makedirs('data')
         if not os.path.exists('data/users.txt'):
             with open('data/users.txt', 'w') as file:
-                pass  # Create empty file
+                pass 
         with open('data/users.txt', 'r') as file:
             for line in file:
                 username, password = line.strip().split(',')
@@ -36,7 +36,7 @@ class UserManager:
             print ("Username already exist!")
             return False
         if not self.validate_username(username) or not self.validate_password(password):
-            print("=============================")
+            print("=======================================================================")
             print ("Username or password does not meet the requirements.")
             return False
         self.users[username] = password
@@ -45,11 +45,11 @@ class UserManager:
 
     def login(self, username, password):
         if username not in self.users:
-            print("=============================")
+            print("=======================================================================")
             print ("Username not found.")
             return False 
         if self.users[username] != password:
-            print("=============================")
+            print("=======================================================================")
             print ("Incorrect Password.")
             return False 
         return True

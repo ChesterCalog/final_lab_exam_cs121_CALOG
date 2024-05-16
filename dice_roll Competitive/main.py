@@ -1,10 +1,21 @@
 from utils.dice_game import DiceGame
-
+  
 def main():
     try:
         game = DiceGame()
         while True:
-            print("Welcome to Dice Roll Game!")
+            END = '\33[0m'
+            COLOR_CYAN = '\33[36m'
+            
+            print(COLOR_CYAN + """
+ ______   ___   _______  _______    _______  _______  __   __  _______ 
+|      | |   | |       ||       |  |       ||   _   ||  |_|  ||       |
+|  _    ||   | |       ||    ___|  |    ___||  |_|  ||       ||    ___|
+| | |   ||   | |       ||   |___   |   | __ |       ||       ||   |___ 
+| |_|   ||   | |      _||    ___|  |   ||  ||       ||       ||    ___|
+|       ||   | |     |_ |   |___   |   |_| ||   _   || ||_|| ||   |___ 
+|______| |___| |_______||_______|  |_______||__| |__||_|   |_||_______| \n""" + END)
+            print("============================ ♡ MAIN MENU ♡ ============================")
             print("1. Register")
             print("2. Login")
             print("3. Exit")
@@ -24,22 +35,22 @@ def main():
 
 def register_user(game):
     try:
-        print("========== Register ==========")
+        print("============================ ♡ REGISTER ♡ =============================")
         username = input("Enter username (must be 4 characters or above): ")
         password = input("Enter password (must be 8 characters or above): ")
         if game.user_manager.register(username, password):
-            print("=============================")
+            print("=======================================================================")
             print("Registration successful.")
         else:
-            print("=============================")
+            print("=======================================================================")
             print("Registration failed. Please try again.")
     except Exception as e:
-        print("=============================")
+        print("=======================================================================")
         print("An error occurred:", e)
 
 def login_user(game):
-    try:
-        print("=========== Login ===========")
+    try:                                                 
+        print("============================== ♡ LOGIN ♡ ==============================")
         username = input("Enter username: ")
         password = input("Enter password: ")
         if game.user_manager.login(username, password):

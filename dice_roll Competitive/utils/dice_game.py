@@ -72,7 +72,6 @@ class DiceGame:
     def roll_dice(self):
         return random.randint(1, 6)
 
-
     def update_scores(self, player_wins):
         user_score = None
         for score in self.scores:
@@ -80,28 +79,24 @@ class DiceGame:
                 user_score = score
                 break
             
-        # If the user doesn't have a score, create a new one
         if user_score is None:
             user_score = Score(self.current_user, "dice_game", 0, 0)
-            self.scores.append(user_score)  # Add new score to scores list
+            self.scores.append(user_score)
 
-        # Update score based on game outcome
-        if player_wins > 0:  # Assuming player_wins should be greater than 0 to update score
-            user_score.points += player_wins * 3  # Update points based on player's wins
-            user_score.wins += player_wins  # Increment wins
+        if player_wins > 0:  
+            user_score.points += player_wins * 3 
+            user_score.wins += player_wins  
 
-        # Save or update the score (no need to check if user_score is in scores list)
         self.save_score(user_score)
-
 
     def show_top_scores(self):
         if not self.scores:
-            print("=============================")
+            print("=======================================================================")
             print("No scores available.")
             self.menu()
             return
 
-        print("=============================")
+        print("=======================================================================")
         print("Top 10 Scores:")
         sorted_scores = sorted(self.scores, key=lambda x: x.points, reverse=True)[:10]
         for i, score in enumerate(sorted_scores, 1):
@@ -114,7 +109,7 @@ class DiceGame:
 
     def menu(self):
         if self.current_user:
-            print("=============================")
+            print("=======================================================================")
             print(f"Hello, {self.current_user}!")
             print("Welcome to Dice Roll Game!")
             print("1. Start Game")
